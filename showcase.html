@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showcase | Social Club 369</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Animation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+
+    <style>
+        /* === SHOWCASE PAGE SPECIFIC STYLES === */
+
+        /* Glitch Effect */
+        @keyframes glitch {
+            0% {
+                transform: translate(0);
+            }
+
+            20% {
+                transform: translate(-3px, 3px);
+            }
+
+            40% {
+                transform: translate(-3px, -3px);
+            }
+
+            60% {
+                transform: translate(3px, 3px);
+            }
+
+            80% {
+                transform: translate(3px, -3px);
+            }
+
+            100% {
+                transform: translate(0);
+            }
+        }
+
+        @keyframes glitch-skew {
+            0% {
+                transform: skew(0deg);
+            }
+
+            10% {
+                transform: skew(-2deg);
+            }
+
+            20% {
+                transform: skew(2deg);
+            }
+
+            30% {
+                transform: skew(0deg);
+            }
+
+            100% {
+                transform: skew(0deg);
+            }
+        }
+
+        @keyframes glitch-color {
+            0% {
+                text-shadow: 2px 0 #00f0ff, -2px 0 #7000ff;
+            }
+
+            25% {
+                text-shadow: -2px 0 #00f0ff, 2px 0 #7000ff;
+            }
+
+            50% {
+                text-shadow: 2px -2px #00f0ff, -2px 2px #7000ff;
+            }
+
+            75% {
+                text-shadow: -2px 2px #00f0ff, 2px -2px #7000ff;
+            }
+
+            100% {
+                text-shadow: 2px 0 #00f0ff, -2px 0 #7000ff;
+            }
+        }
+
+        .glitch-text {
+            position: relative;
+            animation: glitch-skew 4s infinite linear alternate-reverse;
+        }
+
+        .glitch-text::before,
+        .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch-text::before {
+            left: 3px;
+            text-shadow: -3px 0 #00f0ff;
+            clip: rect(24px, 550px, 90px, 0);
+            animation: glitch 3s infinite linear alternate-reverse;
+        }
+
+        .glitch-text::after {
+            left: -3px;
+            text-shadow: -3px 0 #7000ff;
+            clip: rect(85px, 550px, 140px, 0);
+            animation: glitch 2s infinite linear alternate-reverse;
+        }
+
+        /* Hero Showcase */
+        .showcase-hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            padding: 2rem;
+            background-color: #050505;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .showcase-hero h1 {
+            width: 80%;
+            text-align: center;
+            font-size: 4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1.1;
+            letter-spacing: -0.1rem;
+            color: #fff;
+            animation: glitch-color 3s infinite;
+        }
+
+        .showcase-hero h1 span {
+            color: var(--accent-cyan);
+        }
+
+        /* Outro Section */
+        .showcase-outro {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            padding: 2rem;
+            background: linear-gradient(180deg, #050505 0%, #0a0a0a 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .showcase-outro h1 {
+            width: 70%;
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        /* Spotlight Section */
+        .spotlight-section {
+            position: relative;
+            width: 100%;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 10rem;
+            overflow: hidden;
+            background: #050505;
+        }
+
+        .spotlight-section .row {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .spotlight-section .row .col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .spotlight-section .row:nth-child(1) .img-box,
+        .spotlight-section .row:nth-child(4) .img-box {
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        .spotlight-section .img-box {
+            border: 2px solid #333;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            background: #111;
+        }
+
+        .spotlight-section .img-box:hover {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
+        }
+
+        .spotlight-section .img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: filter 0.4s ease;
+        }
+
+        .spotlight-section .img-box:hover img {
+            filter: grayscale(0%);
+        }
+
+        .spotlight-section .card-box {
+            width: 75%;
+            margin: 0 auto;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(112, 0, 255, 0.2), rgba(0, 240, 255, 0.1));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .spotlight-section .card-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(0, 240, 255, 0.05), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        .spotlight-section .card-box h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1.1;
+            color: #fff;
+            position: relative;
+            z-index: 1;
+        }
+
+        .spotlight-section .card-box h2 span {
+            color: var(--accent-cyan);
+        }
+
+        .spotlight-section .card-box p {
+            font-size: 1.125rem;
+            font-weight: 400;
+            color: #ccc;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* SVG Path Animation */
+        .svg-path-container {
+            position: absolute;
+            top: 15vh;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .svg-path-container svg {
+            width: 100%;
+            height: auto;
+        }
+
+        #stroke-path {
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* Responsive */
+        @media (max-width: 1000px) {
+            .showcase-hero h1 {
+                font-size: 2rem;
+                width: 100%;
+            }
+
+            .showcase-outro h1 {
+                font-size: 2rem;
+                width: 100%;
+            }
+
+            .spotlight-section {
+                gap: 5rem;
+            }
+
+            .spotlight-section .row {
+                flex-direction: column;
+            }
+
+            .spotlight-section .row:nth-child(1) .img-box,
+            .spotlight-section .row:nth-child(4) .img-box {
+                width: 100%;
+            }
+
+            .spotlight-section .card-box {
+                width: 100%;
+                padding: 2rem;
+            }
+
+            .spotlight-section .card-box h2 {
+                font-size: 1.5rem;
+            }
+
+            .svg-path-container {
+                top: 10vh;
+                width: 300%;
+            }
+
+            .glitch-text::before,
+            .glitch-text::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="preloader">
+        <svg viewBox="0 0 200 200">
+            <circle cx="100" cy="100" r="90" class="logo-stroke" />
+            <polygon points="100,20 30,150 170,150" class="logo-stroke" />
+            <text x="100" y="110" text-anchor="middle" fill="#00f0ff" font-family="Montserrat" font-weight="bold"
+                font-size="40">369</text>
+        </svg>
+    </div>
+
+    <nav class="navbar">
+        <div class="logo-text">369 CLUB</div>
+        <div class="nav-links">
+            <a href="index.html">HOME</a>
+            <a href="social-club.html">JOIN CLUB</a>
+            <a href="blog.html">BLOG</a>
+            <a href="faq.html">FAQ</a>
+            <a href="showcase.html" class="active">SHOWCASE</a>
+            <a href="contact.html">CONTACT</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="showcase-hero">
+        <h1 class="glitch-text" data-text="DESIGNED TO KEEP YOU ELEVATED AND CONNECTED">
+            Designed to keep you <span>elevated</span> and connected
+        </h1>
+    </section>
+
+    <!-- SPOTLIGHT SECTION -->
+    <section class="spotlight-section" id="spotlight">
+
+        <!-- Row 1 - Single Image -->
+        <div class="row">
+            <div class="img-box">
+                <img src="https://images.unsplash.com/photo-1604815876483-34e857c5e26c?q=80&w=800"
+                    alt="Club Atmosphere">
+            </div>
+        </div>
+
+        <!-- Row 2 - Card + Image -->
+        <div class="row">
+            <div class="col">
+                <div class="card-box">
+                    <h2>A cleaner way to <span>relax</span></h2>
+                    <p>
+                        Instead of chaotic environments, our club provides a curated,
+                        organized space. We group experiences and present them in a
+                        seamless flow that keeps your mind calm, even when the vibes peak.
+                    </p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="img-box">
+                    <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&w=800" alt="Lounge">
+                </div>
+            </div>
+        </div>
+
+        <!-- Row 3 - Image + Card -->
+        <div class="row">
+            <div class="col">
+                <div class="img-box">
+                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800" alt="Gaming">
+                </div>
+            </div>
+            <div class="col">
+                <div class="card-box">
+                    <h2>Built for <span>premium</span> experiences</h2>
+                    <p>
+                        Whether it's gaming, music, or just chilling, our space prioritizes
+                        quality over quantity. We prevent chaos and help maintain clarity
+                        during busy nights and exclusive events.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Row 4 - Single Image -->
+        <div class="row">
+            <div class="img-box">
+                <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=800" alt="Events">
+            </div>
+        </div>
+
+        <!-- SVG Path for stroke animation -->
+        <div class="svg-path-container">
+            <svg viewBox="0 0 1378 2760" fill="none" xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="xMidYMin meet">
+                <path id="stroke-path"
+                    d="M639.668 100C639.668 100 105.669 100 199.669 601.503C293.669 1103.01 1277.17 691.502 1277.17 1399.5C1277.17 2107.5 -155.332 1968 140.168 1438.5C435.669 909.002 1442.66 2093.5 713.168 2659.5"
+                    stroke="url(#gradient)" stroke-width="200" stroke-linecap="round" />
+                <defs>
+                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#00f0ff;stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:#7000ff;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#00f0ff;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+
+    </section>
+
+    <!-- OUTRO -->
+    <section class="showcase-outro">
+        <h1 class="glitch-text" data-text="CLEARER VIBES. PREMIUM QUALITY. READY FOR WHATEVER COMES NEXT.">
+            Clearer vibes. Premium quality. Ready for whatever comes next.
+        </h1>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section
+        style="padding: 100px 5%; text-align: center; background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%); border-top: 1px solid rgba(255,255,255,0.1);">
+        <span class="section-tag" style="justify-content: center; margin-bottom: 20px;">BECOME A MEMBER</span>
+        <h2 style="font-size: 3rem; margin-bottom: 30px;">Ready to join the <span
+                style="color: var(--accent-cyan);">369</span> experience?</h2>
+        <p style="color: #888; max-width: 600px; margin: 0 auto 40px;">Apply now and become part of Torremolinos' most
+            exclusive social club. Premium quality, private community, unforgettable experiences.</p>
+        <a href="social-club.html" class="btn btn-cyan" style="font-size: 1.1rem;">JOIN NOW <i
+                class="fas fa-arrow-right" style="margin-left: 10px;"></i></a>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h4 class="f-title">Keep me updated!</h4>
+                <p style="color: #ccc; font-size: 0.9rem;">Stay informed about our latest news and events.</p>
+                <div class="newsletter">
+                    <input type="email" placeholder="Email Address">
+                    <button>SEND</button>
+                </div>
+            </div>
+            <div>
+                <h4 class="f-title">Menu</h4>
+                <a href="index.html" class="f-link">Homepage</a>
+                <a href="social-club.html" class="f-link">Join Club</a>
+                <a href="blog.html" class="f-link">Blog</a>
+                <a href="faq.html" class="f-link">FAQ</a>
+                <a href="showcase.html" class="f-link">Showcase</a>
+                <a href="contact.html" class="f-link">Contact</a>
+            </div>
+            <div>
+                <h4 class="f-title">Popular articles</h4>
+                <a href="#" class="f-link">Is smoking cannabis legal?</a>
+                <a href="#" class="f-link">Top 5 Reasons to Join</a>
+            </div>
+            <div>
+                <h4 class="f-title">Find us here</h4>
+                <p class="highlight">Address</p>
+                <p style="color: #ccc; font-size: 0.9rem;">P.º de Marítimo Torremolinos, 69<br>Málaga, Spain</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>ALLRIGHT RESERVED 2025</p>
+            <p>WEB DESIGN BY RANKMASTERS.ES</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <!-- Showcase Specific Script for SVG Stroke -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // SVG Stroke Animation
+            const path = document.getElementById("stroke-path");
+            if (path && typeof gsap !== 'undefined') {
+                const pathLength = path.getTotalLength();
+
+                path.style.strokeDasharray = pathLength;
+                path.style.strokeDashoffset = pathLength;
+
+                gsap.to(path, {
+                    strokeDashoffset: 0,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: ".spotlight-section",
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 1,
+                    },
+                });
+            }
+
+            // Glitch effect intensity on scroll
+            const glitchTexts = document.querySelectorAll('.glitch-text');
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+                glitchTexts.forEach(text => {
+                    const intensity = Math.min(scrollY / 500, 1);
+                    text.style.setProperty('--glitch-intensity', intensity);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Club 369 | Malaga</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Animation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+
+<body>
+
+    <!-- PRELOADER PREMIUM -->
+    <div class="preloader">
+        <div class="progress-bar"></div>
+        <div class="preloader-content">
+            <img src="logo-369.png" alt="369 Private Club" class="preloader-logo">
+            <div class="preloader-counter">
+                <span class="counter-number">0</span>
+                <span class="counter-percent">%</span>
+            </div>
+            <p class="preloader-tagline">LOADING EXPERIENCE</p>
+        </div>
+    </div>
+
+    <!-- AGE VERIFICATION MODAL -->
+    <div class="age-modal" id="ageModal">
+        <div class="age-modal-content">
+            <img src="logo-369.png" alt="369 Private Club" class="age-modal-logo">
+            <h2>Are you 21 years or older?</h2>
+            <p>You must be of legal age to enter this site.</p>
+            <div class="age-buttons">
+                <button class="btn-age btn-yes glitch-btn" id="ageYes">YES</button>
+                <button class="btn-age btn-no" id="ageNo">NO</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <a href="index.html" class="navbar-logo">
+            <img src="logo-369.png" alt="369 Private Club">
+        </a>
+        <div class="nav-links">
+            <a href="index.html" class="active">HOME</a>
+            <a href="showcase.html">SHOWCASE</a>
+            <a href="social-club.html">JOIN CLUB</a>
+            <a href="blog.html">BLOG</a>
+            <a href="faq.html">FAQ</a>
+            <a href="contact.html">CONTACT</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero" id="hero-section">
+        <canvas class="hero-canvas"></canvas>
+
+        <div class="hero-bg-img">
+            <img src="club-dabbing.jpg" alt="369 Private Club">
+        </div>
+
+        <div class="hero-content">
+            <span class="hero-subtitle">ENJOY OUR RELAX AMBIANCE</span>
+            <h1 class="hero-title">Social Club in<br>Torremolinos, <span>Malaga</span></h1>
+            <p class="hero-desc">Welcome to the best social club in Torremolinos. Pure quality, pure vibes, pure
+                relaxation.</p>
+            <div class="hero-btns">
+                <a href="social-club.html" class="btn btn-cyan">JOIN US</a>
+                <a href="#reviews" class="btn btn-purple">CHECK REVIEWS</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- INTRO SECTION -->
+    <section class="intro-section">
+        <div class="intro-box">
+            <i class="fas fa-calendar-check" style="font-size: 3rem; color: #00f0ff; margin-bottom: 20px;"></i>
+            <h2>Beside smoking the best 420 quality</h2>
+            <p>Our members pass by for relaxation, making new friends and enjoy the events we offer.</p>
+            <p>Our social club is not only intended to get high, we are also a spot to get new friendships with like
+                minded people.</p>
+            <a href="#events" class="btn btn-cyan">OUR EVENTS <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="intro-grid">
+            <div class="intro-img-placeholder">
+                <img src="club-gaming.jpg" alt="Gaming Zone">
+            </div>
+            <div class="intro-img-placeholder">
+                <img src="club-dabbing.jpg" alt="Dabbing Session">
+            </div>
+            <div class="intro-img-placeholder">
+                <img src="club-vibes.png" alt="Club Vibes">
+            </div>
+            <div class="intro-img-placeholder">
+                <img src="club-gaming2.jpg" alt="Gaming Area">
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about-section">
+        <div class="bg-watermark">PRIVATE CLUB 369</div>
+        <div class="about-imgs">
+            <div class="ab-img-1">
+                <img src="image.png" alt="Club Interior">
+            </div>
+            <div class="ab-img-2">
+                <img src="image copy.png" alt="Club Atmosphere">
+            </div>
+        </div>
+        <div class="about-text">
+            <span class="section-tag"><i class="fas fa-leaf"></i> ABOUT US</span>
+            <h2>About our social club</h2>
+            <div class="divider-line"></div>
+            <p>Welcome to our exclusive social club in Torremolinos, Malaga – a sanctuary designed for relaxation,
+                enjoyment, and community.</p>
+            <p>We provide a safe and welcoming environment where adults 21 years and over can unwind, indulge in
+                top-quality cannabis, and make lasting memories with like-minded people.</p>
+        </div>
+    </section>
+
+    <!-- STICKY CARDS SECTION -->
+    <section class="cards-wrapper">
+        <div class="intro-text-sticky">
+            <h2>Why choose <span style="color:var(--accent-cyan)">369?</span></h2>
+            <p>Experience the brutal difference. High quality, privacy, and community.</p>
+        </div>
+
+        <div class="card" id="card-1">
+            <div class="card-inner">
+                <div class="card-content">
+                    <h1>PREMIUM QUALITY</h1>
+                    <p>We provide only top-shelf genetics. From Cali strains to the finest local grown, quality is our
+                        obsession.</p>
+                </div>
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1603909223429-69bb7101f420?q=80&w=1000" alt="Quality">
+                </div>
+            </div>
+        </div>
+
+        <div class="card" id="card-2">
+            <div class="card-inner">
+                <div class="card-content">
+                    <h1>GAMING & CHILL</h1>
+                    <p>Play FIFA, GTA, or board games with friends. Our lounge is designed for ultimate relaxation and
+                        fun.</p>
+                </div>
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1000" alt="Gaming">
+                </div>
+            </div>
+        </div>
+
+        <div class="card" id="card-3">
+            <div class="card-inner">
+                <div class="card-content">
+                    <h1>PRIVATE COMMUNITY</h1>
+                    <p>Connect with like-minded people in a safe, discreet, and legal environment. Your privacy is our
+                        priority.</p>
+                </div>
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1000" alt="Community">
+                </div>
+            </div>
+        </div>
+
+        <div class="card" id="card-4">
+            <div class="card-inner">
+                <div class="card-content">
+                    <h1>EXCLUSIVE EVENTS</h1>
+                    <p>From Dab Nights to tasting sessions. Being a member opens the door to exclusive social events.
+                    </p>
+                </div>
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1000" alt="Events">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EVENTS SECTION -->
+    <section class="events-section" id="events">
+        <span class="section-tag" style="justify-content: center;">OUR EVENTS</span>
+        <h2>Check here our social club events</h2>
+        <div class="events-grid">
+            <div class="event-card">
+                <div class="event-bg" style="background-image: url('club-dabbing.jpg');">
+                </div>
+                <div class="event-overlay">
+                    <span>EVERY WEEKEND</span>
+                    <h3>Dabnights</h3>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-bg" style="background-image: url('club-gaming.jpg');">
+                </div>
+                <div class="event-overlay">
+                    <span>EVERY DAY</span>
+                    <h3>Gaming</h3>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-bg" style="background-image: url('club-gaming2.jpg');">
+                </div>
+                <div class="event-overlay">
+                    <span>EVERY DAY</span>
+                    <h3>Board games</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ATMOSPHERE SECTION (SENSEITECH STACKING) -->
+    <section class="atmosphere-section">
+        <h1 class="atmosphere-title">Experience the <span>Atmosphere</span></h1>
+        <div class="atmosphere-images">
+            <div class="atmosphere-img">
+                <img src="gallery/img1.jpg" alt="369 Club Atmosphere">
+            </div>
+            <div class="atmosphere-img">
+                <img src="gallery/img2.jpg" alt="369 Club Vibes">
+            </div>
+            <div class="atmosphere-img">
+                <img src="gallery/img3.jpg" alt="369 Club Experience">
+            </div>
+            <div class="atmosphere-img">
+                <img src="gallery/img4.jpg" alt="369 Club Community">
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS SECTION -->
+    <section class="reviews-section" id="reviews">
+        <span class="section-tag" style="justify-content: center;">OUR CUSTOMER FEEDBACK</span>
+        <h2 style="text-align: center; margin-bottom: 50px;">Read here some experiences<br>about our social club</h2>
+        <div class="reviews-container">
+            <div class="review-summary">
+                <div class="review-score">EXCELLENT</div>
+                <div class="stars">★★★★★</div>
+                <p class="total">Based on 78 reviews</p>
+                <!-- Google Logo -->
+                <div class="google-brand">
+                    <svg viewBox="0 0 272 92" width="120" height="40">
+                        <path fill="#4285F4"
+                            d="M115.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18C71.25 34.32 81.24 25 93.5 25s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44S80.99 39.2 80.99 47.18c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z" />
+                        <path fill="#EA4335"
+                            d="M163.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18c0-12.85 9.99-22.18 22.25-22.18s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44s-12.51 5.46-12.51 13.44c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z" />
+                        <path fill="#FBBC05"
+                            d="M209.75 26.34v39.82c0 16.38-9.66 23.07-21.08 23.07-10.75 0-17.22-7.19-19.66-13.07l8.48-3.53c1.51 3.61 5.21 7.87 11.17 7.87 7.31 0 11.84-4.51 11.84-13v-3.19h-.34c-2.18 2.69-6.38 5.04-11.68 5.04-11.09 0-21.25-9.66-21.25-22.09 0-12.52 10.16-22.26 21.25-22.26 5.29 0 9.49 2.35 11.68 4.96h.34v-3.61h9.25zm-8.56 20.92c0-7.81-5.21-13.52-11.84-13.52-6.72 0-12.35 5.71-12.35 13.52 0 7.73 5.63 13.36 12.35 13.36 6.63 0 11.84-5.63 11.84-13.36z" />
+                        <path fill="#4285F4" d="M225 3v65h-9.5V3h9.5z" />
+                        <path fill="#34A853"
+                            d="M262.02 54.48l7.56 5.04c-2.44 3.61-8.32 9.83-18.48 9.83-12.6 0-22.01-9.74-22.01-22.18 0-13.19 9.49-22.18 20.92-22.18 11.51 0 17.14 9.16 18.98 14.11l1.01 2.52-29.65 12.28c2.27 4.45 5.8 6.72 10.75 6.72 4.96 0 8.4-2.44 10.92-6.14zm-23.27-7.98l19.82-8.23c-1.09-2.77-4.37-4.7-8.23-4.7-4.95 0-11.84 4.37-11.59 12.93z" />
+                        <path fill="#EA4335"
+                            d="M35.29 41.41V32H67c.31 1.64.47 3.58.47 5.68 0 7.06-1.93 15.79-8.15 22.01-6.05 6.3-13.78 9.66-24.02 9.66C16.32 69.35.36 53.89.36 34.91.36 15.93 16.32.47 35.3.47c10.5 0 17.98 4.12 23.6 9.49l-6.64 6.64c-4.03-3.78-9.49-6.72-16.97-6.72-13.86 0-24.7 11.17-24.7 25.03 0 13.86 10.84 25.03 24.7 25.03 8.99 0 14.11-3.61 17.39-6.89 2.66-2.66 4.41-6.46 5.1-11.65l-22.49.01z" />
+                    </svg>
+                </div>
+                <a href="#" class="btn btn-cyan glitch-btn" style="margin-top: 20px;">LEAVE A REVIEW ☆</a>
+            </div>
+            <div class="review-grid">
+                <div class="review-card">
+                    <div class="rc-header">
+                        <div class="rc-avatar" style="background:#fbbc05">C</div>
+                        <div>
+                            <strong>Cagi</strong><br>
+                            <span style="font-size:0.8rem; color:#666;">06/07/2025</span>
+                        </div>
+                        <i class="fab fa-google google-icon"></i>
+                    </div>
+                    <div class="stars-small">★★★★★</div>
+                    <p class="rc-text">"Der Vibe ist absolut gechillt – keine Hektik, kein Stress. Die Qualität ist
+                        erstklassig und das Personal super freundlich."</p>
+                </div>
+                <div class="review-card">
+                    <div class="rc-header">
+                        <div class="rc-avatar" style="background:#000">A</div>
+                        <div>
+                            <strong>A-Prevail</strong><br>
+                            <span style="font-size:0.8rem; color:#666;">25/06/2025</span>
+                        </div>
+                        <i class="fab fa-google google-icon"></i>
+                    </div>
+                    <div class="stars-small">★★★★★</div>
+                    <p class="rc-text">"369 was Amazing, customer service was top tier. Great selection of top quality
+                        products. Highly recommend!"</p>
+                </div>
+                <div class="review-card">
+                    <div class="rc-header">
+                        <div class="rc-avatar" style="background:#34a853">M</div>
+                        <div>
+                            <strong>Mike T.</strong><br>
+                            <span style="font-size:0.8rem; color:#666;">15/06/2025</span>
+                        </div>
+                        <i class="fab fa-google google-icon"></i>
+                    </div>
+                    <div class="stars-small">★★★★★</div>
+                    <p class="rc-text">"Best club in Torremolinos! The staff is super friendly and the vibe is perfect
+                        for relaxation. Will definitely come back."</p>
+                </div>
+                <div class="review-card">
+                    <div class="rc-header">
+                        <div class="rc-avatar" style="background:#ea4335">J</div>
+                        <div>
+                            <strong>Julia R.</strong><br>
+                            <span style="font-size:0.8rem; color:#666;">01/06/2025</span>
+                        </div>
+                        <i class="fab fa-google google-icon"></i>
+                    </div>
+                    <div class="stars-small">★★★★★</div>
+                    <p class="rc-text">"Incredible place! The gaming area is amazing and the quality is unmatched.
+                        Perfect spot to unwind after work."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOG SECTION -->
+    <section class="blog-section">
+        <div class="blog-header">
+            <div>
+                <span class="section-tag"><i class="fas fa-newspaper"></i> OUR BLOGS</span>
+                <h2 class="glitch-text" data-text="Read the latest cannabis news">Read the latest<br>cannabis news</h2>
+            </div>
+            <div class="blog-intro-text">
+                <p>Your go-to source for the latest insights, news, and discussions surrounding the world of cannabis.
+                    Education, awareness, and responsible use – that's our mission.</p>
+                <a href="blog.html" class="btn btn-cyan glitch-btn">CHECK ALL BLOG POSTS →</a>
+            </div>
+        </div>
+        <div class="blog-grid-premium">
+            <!-- Featured Article -->
+            <article class="blog-card featured">
+                <div class="blog-img-wrapper">
+                    <img src="gallery/img5.jpg" alt="Featured Blog">
+                    <span class="blog-tag">FEATURED</span>
+                </div>
+                <div class="blog-content">
+                    <span class="blog-category">LEGAL</span>
+                    <h3>Is smoking cannabis legal in Malaga?</h3>
+                    <p class="blog-excerpt">Everything you need to know about cannabis legislation in Spain and how
+                        social clubs operate within the legal framework.</p>
+                    <div class="blog-meta">
+                        <span class="date"><i class="far fa-calendar"></i> March 30, 2025</span>
+                        <a href="#" class="read-more glitch-btn">READ MORE →</a>
+                    </div>
+                </div>
+            </article>
+            <!-- Secondary Articles -->
+            <div class="blog-sidebar">
+                <article class="blog-card-small">
+                    <img src="gallery/img6.jpg" alt="Blog 2">
+                    <div class="blog-content">
+                        <span class="blog-category">LIFESTYLE</span>
+                        <h4>Social Club in Malaga: Top 5 Reasons to Join</h4>
+                        <span class="date">April 20, 2025</span>
+                        <a href="#" class="read-more">READ MORE →</a>
+                    </div>
+                </article>
+                <article class="blog-card-small">
+                    <img src="gallery/img7.jpg" alt="Blog 3">
+                    <div class="blog-content">
+                        <span class="blog-category">STRAINS</span>
+                        <h4>Cali Weed Strains: Why Are they So Popular in Spain?</h4>
+                        <span class="date">May 11, 2025</span>
+                        <a href="#" class="read-more">READ MORE →</a>
+                    </div>
+                </article>
+                <article class="blog-card-small">
+                    <img src="gallery/img8.jpg" alt="Blog 4">
+                    <div class="blog-content">
+                        <span class="blog-category">EVENTS</span>
+                        <h4>Dab Nights: The Ultimate Weekend Experience</h4>
+                        <span class="date">May 25, 2025</span>
+                        <a href="#" class="read-more">READ MORE →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h4 class="f-title">Keep me updated!</h4>
+                <p style="color: #ccc; font-size: 0.9rem;">Keep updated about our opening hours, events and more...</p>
+                <div class="newsletter">
+                    <input type="email" placeholder="Email Address">
+                    <button>SEND</button>
+                </div>
+            </div>
+            <div>
+                <h4 class="f-title">Menu</h4>
+                <a href="index.html" class="f-link">Homepage</a>
+                <a href="social-club.html" class="f-link">Join Club</a>
+                <a href="blog.html" class="f-link">Blog</a>
+                <a href="faq.html" class="f-link">FAQ</a>
+                <a href="contact.html" class="f-link">Contact</a>
+            </div>
+            <div>
+                <h4 class="f-title">Popular articles</h4>
+                <a href="#" class="f-link">Is smoking cannabis legal?</a>
+                <a href="#" class="f-link">Top 5 Reasons to Join</a>
+                <a href="#" class="f-link">Cali Weed Strains</a>
+            </div>
+            <div>
+                <h4 class="f-title">Find us here</h4>
+                <p class="highlight">Address</p>
+                <p style="color: #ccc; font-size: 0.9rem;">P.º de Marítimo Torremolinos, 69,<br>local 6, 29620
+                    Torremolinos</p>
+                <p style="color: #ccc; font-size: 0.9rem; margin-top: 15px;">
+                    <i class="fas fa-envelope" style="color: var(--accent-cyan); margin-right: 10px;"></i>
+                    hello@privateclub369.es
+                </p>
+                <p style="color: #ccc; font-size: 0.9rem;">
+                    <i class="fas fa-phone" style="color: var(--accent-cyan); margin-right: 10px;"></i> (+34) 644 79 88
+                    00
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>ALLRIGHT RESERVED 2025</p>
+            <p>WEB DESIGN BY RANKMASTERS.ES</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
