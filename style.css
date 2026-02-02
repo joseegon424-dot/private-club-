@@ -1,30 +1,27 @@
 /* =========================================
-   CANDADO FORZADO - MODO PC EN TODOS LOS DISPOSITIVOS
+   FIX DEFINITIVO: MODO PC EN MÓVIL + PANTALLA COMPLETA EN PC
    ========================================= */
-html {
-    min-width: 1300px !important;
-    width: 1300px !important;
-}
 
-body {
-    min-width: 1300px !important;
-    width: 1300px !important;
-    overflow-x: hidden !important;
-}
-
-/* Forzar todas las secciones principales */
-.hero,
-.intro-section,
-.about-section,
-.cards-wrapper,
-.events-section,
-.atmosphere-section,
-.reviews-section,
-.blog-section,
-footer,
-.navbar {
-    min-width: 1300px !important;
+html, body {
+    /* 1. En PC: Ocupa todo el ancho disponible (sin huecos a la derecha) */
     width: 100% !important;
+    
+    /* 2. En Móvil: Nunca midas menos de 1300px (fuerza el zoom out) */
+    min-width: 1300px !important;
+    
+    /* 3. Evita el scroll horizontal sucio */
+    overflow-x: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Asegurar que las secciones principales se estiren al 100% del padre */
+.hero, .intro-section, .about-section, .cards-wrapper,
+.events-section, .atmosphere-section, .reviews-section,
+.blog-section, footer, .navbar, .app {
+    width: 100% !important;
+    min-width: 1300px !important; /* Heredan el candado del móvil */
+    box-sizing: border-box !important;
 }
 
 /* === GLOBAL SETTINGS: CORPORATE BRUTALISM === */
