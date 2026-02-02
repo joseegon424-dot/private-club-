@@ -2,15 +2,13 @@ console.log("Social Club 369 // Premium Brutalist Mode // ALL SYSTEMS GO");
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // MOBILE DETECTION - Disable heavy effects on mobile
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
-        || window.innerWidth < 768;
-    const isLowPerfDevice = navigator.hardwareConcurrency <= 4;
+    // FORZAR MODO DESKTOP EN TODOS LOS DISPOSITIVOS
+    const isMobile = false; // Siempre falso = siempre modo PC
+    const isLowPerfDevice = false;
 
-    if (isMobile) {
-        console.log("📱 Mobile device detected - Optimizing performance");
-        document.body.classList.add('is-mobile');
-    }
+    // Agregar clase desktop
+    document.body.classList.add('is-desktop');
+    console.log("💻 MODO PC FORZADO: Activado en todos los dispositivos");
 
     // 1. INICIALIZAR LENIS (SCROLL SUAVE DE LUJO) - Skip on mobile for performance
     let lenis;
