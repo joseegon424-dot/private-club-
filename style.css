@@ -1,3 +1,32 @@
+/* =========================================
+   CANDADO FORZADO - MODO PC EN TODOS LOS DISPOSITIVOS
+   ========================================= */
+html {
+    min-width: 1300px !important;
+    width: 1300px !important;
+}
+
+body {
+    min-width: 1300px !important;
+    width: 1300px !important;
+    overflow-x: hidden !important;
+}
+
+/* Forzar todas las secciones principales */
+.hero,
+.intro-section,
+.about-section,
+.cards-wrapper,
+.events-section,
+.atmosphere-section,
+.reviews-section,
+.blog-section,
+footer,
+.navbar {
+    min-width: 1300px !important;
+    width: 100% !important;
+}
+
 /* === GLOBAL SETTINGS: CORPORATE BRUTALISM === */
 :root {
     --bg-black: #050505;
