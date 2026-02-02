@@ -269,25 +269,29 @@
             const projectNamesContainer = document.querySelector(".project-names");
             const totalProjectCount = projectNames.length;
 
+            // Usar altura fija de viewport para consistencia móvil/PC
+            const viewportHeight = 800; // Altura fija para cálculos consistentes
+
             const spotlightSectionHeight = spotlightSection.offsetHeight;
-            const spotlightSectionPadding = parseFloat(getComputedStyle(spotlightSection).padding);
+            const spotlightSectionPadding = parseFloat(getComputedStyle(spotlightSection).padding) || 32;
             const projectIndexHeight = projectIndex.offsetHeight;
             const containerHeight = projectNamesContainer.offsetHeight;
-            const imagesHeight = projectImagesContainer.offsetHeight;
+            const imagesHeight = projectImagesContainer.scrollHeight;
 
             const moveDistanceIndex = spotlightSectionHeight - spotlightSectionPadding * 2 - projectIndexHeight;
             const moveDistanceNames = spotlightSectionHeight - spotlightSectionPadding * 2 - containerHeight;
-            const moveDistanceImages = window.innerHeight - imagesHeight;
+            const moveDistanceImages = viewportHeight - imagesHeight;
 
-            const imgActivationThreshold = window.innerHeight / 2;
+            const imgActivationThreshold = viewportHeight / 2;
 
             ScrollTrigger.create({
                 trigger: ".spotlight-section",
                 start: "top top",
-                end: `+=${window.innerHeight * 5}px`,
+                end: `+=${viewportHeight * 5}px`,
                 pin: true,
                 pinSpacing: true,
-                scrub: 1,
+                scrub: 0.5,
+                invalidateOnRefresh: true,
                 onUpdate: (self) => {
                     const progress = self.progress;
                     const currentIndex = Math.min(
@@ -336,6 +340,11 @@
                         }
                     });
                 },
+            });
+
+            // Refrescar ScrollTrigger cuando la página esté completamente cargada
+            window.addEventListener('load', () => {
+                ScrollTrigger.refresh();
             });
         });
     </script>
